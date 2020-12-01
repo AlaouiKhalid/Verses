@@ -7,34 +7,14 @@ var Verse = require('./Verse.model');
 
 mongoose.connect('mongodb://localhost/qd');
 
-/* {
+/* 
+exemple of a document
+{
     "nSurah" : 1,
     "nAyah" : 1,
     "content" : "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     "language" : "Original Arabic"
 } 
-
-
-["Original_Arabic",
-    "Chinese",
-    "French",
-    "engyusufali",
-    "Persian",
-    "Japanese",
-    "Norwegian",
-    "Bangla",
-    "Malayalam",
-    "Dutch",
-    "Urdu",
-    "Turkish",
-    "Italian-Piccardo",
-    "Russian",
-    "Portuguese",
-    "Swedish",
-    "German",
-    "Tamil",
-    "Uzbek",
-    "Indonesian"]
 
 */
 
