@@ -1,0 +1,269 @@
+<style>
+  mat-button-toggle-group {
+    margin-left: 12px;
+  }
+
+  #display1 {
+    border-width: 15px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 255);
+
+  }
+
+  #question1,
+  #question2 {
+    background-color: rgb(255, 255, 255);
+  }
+</style>
+<!-- <form class="navbar-form navbar-right" role="search" *ngIf="authService.isAuthenticated()">
+
+
+  <div class="form-group form-search is-empty">
+
+    <input type="text" class="form-control" placeholder="Search" id="search" name="search" #search="ngModel"
+      ngModel="search" (keyup)="searchField(search.value)" ngModel />
+    <span class="material-input"></span>
+  </div>
+  <div *ngIf="FinalResultsSearch.length > 0">
+    <option style="cursor:pointer;" *ngFor="let p of FinalResultsSearch" [value]="p"
+      (click)="sendtocomponent(p)">
+      {{ p.type }} : {{ p.count }} Results
+    </option>
+  </div>
+
+
+</form> -->
+<div class="container">
+
+  <button (click)="initiateRecording()" id="start-btn" class="btn btn-primary" *ngIf="!recording"> Start Recording
+  </button>
+  <button (click)="stopRecording()" class="btn btn-danger" *ngIf="recording"> Stop Recording </button>
+  <div *ngIf="recordingaudio">Recording ....</div>
+
+
+  <div class="clearfix"></div>
+  <audio controls="" *ngIf="url">
+    <source [src]="sanitize(url)" type="audio/wav">
+  </audio>
+
+  <div id="question1">
+
+    <!-- <div class="souar">
+      <mat-form-field>
+        <mat-label>اختر السورة</mat-label>
+        <mat-select [(value)]="surah">
+          <mat-option *ngFor="let s of getsa()" [value]="s">
+            {{ s }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+
+    <!-- <div class="word">
+      <mat-form-field>
+        <mat-label>uktub ..</mat-label>
+        <mat-i
+        
+      </mat-form-field>
+    </div> -->
+
+    <mat-form-field class="example-full-width">
+      <mat-label>type a word</mat-label>
+      <input matInput placeholder="Search by word" #input2 [(ngModel)]='word'>
+    </mat-form-field>
+
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle value="bold" (click)="wordSearch(lang,word)">go 2</mat-button-toggle>
+    </mat-button-toggle-group>
+
+  </div>
+  <div class="options" id="question2">
+    <div class="languages">
+      <mat-form-field>
+        <mat-label>Choose a language</mat-label>
+        <mat-select [(value)]="lang">
+          <mat-option *ngFor="let l of Languages" [value]="l">
+            {{ l }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="souar">
+      <mat-form-field>
+        <mat-label>اختر السورة</mat-label>
+        <mat-select [(value)]="surah">
+          <!---getsa()-->
+          <mat-option *ngFor="let s of souratInfo" [value]="s.id">
+            {{ s["nameArabic"] }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="versets">
+      <mat-form-field>
+        <mat-label>اختر الآية</mat-label>
+        <mat-select [(value)]="verse">
+          <!--souratInfo[surah-1].versesCount-->
+          <mat-option *ngFor="let a of getva(nAyat[surah-1])" [value]="a">
+            {{ a }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle value="bold" (click)="infoSearch(lang,surah,verse)">go</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="display" *ngIf="VersesRes.length > 0">
+
+    <div *ngFor="let verset of VersesRes">
+      <!-- here for backfround-->
+      <div id="display1">
+        <h3><b style="font-family:'Almarai', sans-serif"> {{ verset["content"] }}</b></h3>
+        <span id="verseImage"><img src='../../assets/pngayat/{{getImageLink(verset["nSurah"],verset["nAyah"])}}'
+            width="100%" height="100%"></span><br>
+        <audio id="newMediaPlayer" src='../../assets/mp3ayat/{{getMp3Link(verset["nSurah"],verset["nAyah"])}}'
+          controls="controls"></audio>
+      </div>
+      <div id="nada">
+        -------------Sourat: {{ souratInfo[verset["nSurah"]-1]["nameArabic"] }}---revelationOrder:
+        {{ souratInfo[verset["nSurah"]-1]["revelationOrder"] }}------revelationPlace:
+        {{ souratInfo[verset["nSurah"]-1]["revelationPlace"] }}-----Verse:
+        {{verset["nAyah"]}}----
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <form class="form" (ngSubmit)="onSignup(f)" #f="ngForm">
+    <div class="card-content">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="material-icons">face</i>
+        </span>
+        <input  
+        type="text" class="form-control" placeholder="First Name..." 
+        name="inputName" id="inputName"
+        #inputName="ngModel" 
+        required
+        ngModel    
+        minlength="3"             
+        />
+      </div>
+      <div  *ngIf="inputName.touched && !inputName.valid"> 
+        <span class="error" *ngIf="inputName.errors.required">First Name is required<br></span>
+        <span class="error" *ngIf="inputName.errors.minlength">First Name must be at least 3 characters</span>
+      </div>
+      
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="material-icons">email</i>
+        </span>
+
+        <input 
+        type="email" 
+        class="form-control" 
+        placeholder="Email..." 
+        name="email"  
+        id="email" 
+        #email="ngModel" 
+        required
+        email
+        ngModel
+        />
+      </div>
+
+      <div  *ngIf="email.touched && !email.valid"> 
+        <span class="error" *ngIf="email.errors.required">Email is required<br></span>
+        <span class="error" *ngIf="email.errors.email">Email must be a valid email address</span>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="material-icons">lock_outline</i>
+        </span>
+
+        <input 
+        [type]="hide ? 'password' : 'text'"
+        class="form-control"
+        placeholder="password..."
+        name="password"
+        id="password"
+        #password="ngModel"
+        required  
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+           ngModel  />
+      </div>
+      <div  *ngIf="password.touched && !password.valid"> 
+        <span class="error" *ngIf="password.errors.required">Password is required<br></span>
+        <span class="error" *ngIf="password.errors.pattern">Must contain at least one number,<br></span>
+        <span class="error" *ngIf="password.errors.pattern">one uppercase,one lowercase letter<br></span>
+        <span class="error" *ngIf="password.errors.pattern">and at least 8 or more characters.</span>
+      </div>    
+      
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="material-icons">lock_outline</i>
+        </span>
+        <input 
+        [type]="hide ? 'password' : 'text'"
+        class="form-control"
+        placeholder="confirm password..."
+        name="verifyPass"
+        id="verifyPass" 
+        #verifyPass="ngModel" 
+        required 
+        ngModel 
+        pattern="{{ password.value }}"
+        />
+      </div>
+      <div  *ngIf="verifyPass.touched && !verifyPass.valid"> 
+        <span class="error" *ngIf="verifyPass.touched && !verifyPass.valid && verifyPass.errors.required">Retype the password<br></span>
+        <span class="error" *ngIf="verifyPass.touched && !verifyPass.valid && verifyPass.errors.pattern">Does not match to the previous pattern</span>
+      </div>
+
+      <div class="input-group">
+          <span class="input-group-addon">
+              <i class="material-icons">assignment</i>
+            </span>
+        <select
+        
+          id="selectype"
+          name="selectype"
+          class="form-control"
+          ngModel='selectype'  
+          #selectype="ngModel"
+          required                         
+          ngModel >
+
+          <option *ngFor="let type of participantTypes" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+
+      <span class="error" *ngIf="selectype.touched && selectype.invalid"> 
+          the type is required<br>
+      </span>
+
+      <input type="checkbox"  name="term" id="term" #term="ngModel"  ngModel required  />
+
+          I agree to the  <a href="#something">terms and conditions</a>              
+
+    <div class="footer text-center">
+      <button type="submit" class="btn btn-primary btn-round" [disabled]="f.invalid">Get Started</button>
+    </div>
+
+  </div>
+  </form>-->
+
+</div>
+<!-- 
+<script src="js/app.js"></script>-->
+
+<script src="index.js">Start</script>
