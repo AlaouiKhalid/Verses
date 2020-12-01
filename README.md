@@ -1,1 +1,3 @@
 # Verses
+
+mongoimport --db=qd --collection=verses --file=verses.json 
