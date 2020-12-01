@@ -6,11 +6,7 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent /* implements OnInit */ {
+export class AppComponent  {
   title = "Quran Navigator";
 
-  // constructor(private route: ActivatedRoute) {}
-  // ngOnInit() {
-  //   this.route.snapshot.data.souar;
-  // }
 }
