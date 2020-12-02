@@ -1,5 +1,5 @@
 # Quran Navigator
-this app helps youu to get every verse that you want on multiple languages (21 languages)
+this app helps you to get every verse in Quran on multiple languages (21 languages)
 -Original_Arabic
 -Chinese
 -French
@@ -22,22 +22,32 @@ this app helps youu to get every verse that you want on multiple languages (21 l
 -Indonesian
 -Korean
   
-and you can search by word on specifiying the languages
+and you can search by word on specifying the language
 
+
+
+## Installation
 Make sure that you have these requirement installed:
--MongoDB
--NodeJs
--Angular
+    -MongoDB
+    -NodeJs
+    -Angular
 
+Step 1. you have to import the data on the verses.json file on your Mongodb server with a new database (the database name->qd, the collection name->verses) as follow: 
 
-1)first you have to create  on your Mongodb server a new database as follow:
-    the database name:qd
-    the collection name :verses
-then import the data on the json file below with this command:
+```
 mongoimport --db=qd --collection=verses --file=verses.json 
+```
 
 
-2)on the VersesApiBackend folder  enter:npm install
-then run the API with:node app
-3)on the quran-navigator folder  enter:npm install
-then run the app with :ng serve
+Step 2. Run the API
+on the VersesApiBackend folder  enter:
+```
+npm install
+node app
+```
+Step 3. Run the app
+on the quran-navigator folder  enter:
+```
+npm install
+ng serve
+```

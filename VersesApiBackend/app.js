@@ -58,7 +58,7 @@ app.get('/verse/:id', function (req, res) {
 
 });
 
-//search a word(lang)
+//search a word /lang
 app.get("/searchword/:id", function (req, res) {
     let id = req.params.id;
     const keys = id.split("-");
@@ -86,7 +86,7 @@ app.get("/searchword/:id", function (req, res) {
         });
 
 });
-//search word in sourat(lang)
+//search word in sourat /lang
 app.get("/searchwordinsourat/:id", function (req, res) {
     let id = req.params.id;
     const keys = id.split("-");
@@ -160,7 +160,7 @@ app.get("/searchwordinsourat/:id", function (req, res) {
 
 });
 
-
+// Listen to queries
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
 });
