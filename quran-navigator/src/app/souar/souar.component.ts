@@ -2064,10 +2064,13 @@ export class SouarComponent implements OnInit {
 
 
   getImageLink(a, b) {
-    return a + "_" + b + ".png";
+    /*https://everyayah.com/data/images_png/2_12.png */
+    return "https://everyayah.com/data/images_png/"+a + "_" + b + ".png";
   }
 
   getMp3Link(a, b) {
+
+    /*https://everyayah.com/data/Ghamadi_40kbps/114002.mp3*/
     a = a.toString();
     b = b.toString();
 
@@ -2078,7 +2081,7 @@ export class SouarComponent implements OnInit {
       b = "0" + b
     }
 
-    return a + b + ".mp3";
+    return "https://everyayah.com/data/Ghamadi_40kbps/"+a + b + ".mp3";
   }
 
 

@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 3005
 var Verse = require('./Verse.model');
-
-mongoose.connect('mongodb://localhost/qd');
-
+const password = encodeURIComponent('something');
+mongoose.connect(`mongodb+srv://AlaouiKhalid:${password}@verses.xqvlj.mongodb.net/qd?retryWrites=true&w=majority`, 
+{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 /* 
+
 exemple of a document
 {
     "nSurah" : 1,
