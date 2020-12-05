@@ -9,7 +9,7 @@ mongoose.connect(`mongodb+srv://AlaouiKhalid:${password}@verses.xqvlj.mongodb.ne
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 /* 
 
-exemple of a document
+exemple of  documents
 {
     "nSurah" : 1,
     "nAyah" : 1,
