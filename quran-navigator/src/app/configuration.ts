@@ -9,19 +9,20 @@ export class Configuration {
     public ApiIP: string = "http://localhost";    //localhost
     //port for the  Api
     public ApiPort: string = "3005";
+    //this.ApiIP + ":" + this.ApiPort +link
 
     //getting a sourat /lang
-    public ServerSourat: string = this.ApiIP + ":" + this.ApiPort + "/sourat";
+    public ServerSourat: string =  "/sourat";
 
 
     //getting a verse in a sourat /lang
-    public ServerVerse: string = this.ApiIP + ":" + this.ApiPort + "/verse";
+    public ServerVerse: string =  "/verse";
 
 
     // a word(lang)
-    public ServerWord: string = this.ApiIP + ":" + this.ApiPort + "/searchword";
+    public ServerWord: string =  "/searchword";
 
     // a word(lang) in sourat
-    public ServerWordInSourat: string = this.ApiIP + ":" + this.ApiPort + "/searchwordinsourat";
+    public ServerWordInSourat: string =  "/searchwordinsourat";
 
 }
