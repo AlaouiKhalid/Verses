@@ -10,6 +10,7 @@ const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, 
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 /* 
+mongodb+srv://AlaouiKhalid:something@verses.xqvlj.mongodb.net/qd?retryWrites=true&w=majority
 const password = encodeURIComponent('something');
 mongoose.connect(`mongodb+srv://AlaouiKhalid:${password}@verses.xqvlj.mongodb.net/qd?retryWrites=true&w=majority`, 
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
