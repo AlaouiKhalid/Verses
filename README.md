@@ -28,19 +28,11 @@ and you can search by word on specifying the language
 
 ## Installation
 Make sure that you have these requirement installed:
-    -MongoDB
     -NodeJs
     -Angular
 
-Step 1. you have to import the data on the verses.json file on your Mongodb server with a new database (the database name->qd, the collection name->verses) as follow: 
-
-```
-mongoimport --db=qd --collection=verses --file=verses.json 
-```
-
-
-Step 2. Run the API
-on the VersesApiBackend folder  enter:
+Step 1. Run the API
+on the root folder  enter:
 ```
 npm install
 node server
