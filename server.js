@@ -7,9 +7,8 @@ var Verse = require('./Verse.model');
 
 
 // Create link to Angular build directory
-var distDir = "./dist/";
-app.use(express.static(distDir));
 
+app.use(express.static(__dirname + '/dist'));
 
 const uri = process.env.MONGODB_URI;
 
