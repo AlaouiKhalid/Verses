@@ -4,8 +4,12 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3005;
 var Verse = require('./Verse.model');
-var distDir = "./quran-navigator/dist/";
+
+
+// Create link to Angular build directory
+var distDir = "./dist/";
 app.use(express.static(distDir));
+
 
 const uri = process.env.MONGODB_URI;
 
