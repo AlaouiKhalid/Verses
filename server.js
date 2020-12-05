@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3005;
 var Verse = require('./Verse.model');
+var distDir = "./quran-navigator/dist/";
+app.use(express.static(distDir));
 
 const uri = process.env.MONGODB_URI;
 
@@ -21,7 +23,7 @@ exemple of  documents
     "content" : "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     "language" : "Original Arabic"
 } 
-
+/sourat/Original_Arabic-1
 */
 
 //getting a sourat /lang
