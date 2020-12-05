@@ -43,7 +43,7 @@ Step 2. Run the API
 on the VersesApiBackend folder  enter:
 ```
 npm install
-node app
+node server
 ```
 Step 3. Run the app
 on the quran-navigator folder  enter:
