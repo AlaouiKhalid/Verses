@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "quran-navigator"
+  "defaultProject": "quran-navigator",
+  "cli": {
+    "analytics": false
+  }
 }
