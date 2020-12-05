@@ -8,7 +8,7 @@ var Verse = require('./Verse.model');
 
 // Create link to Angular build directory
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/quran-navigator'));
 
 const uri = process.env.MONGODB_URI;
 
