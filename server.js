@@ -15,18 +15,13 @@ const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, 
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 /* 
-mongodb+srv://AlaouiKhalid:something@verses.xqvlj.mongodb.net/qd?retryWrites=true&w=majority
-const password = encodeURIComponent('something');
-mongoose.connect(`mongodb+srv://AlaouiKhalid:${password}@verses.xqvlj.mongodb.net/qd?retryWrites=true&w=majority`, 
-{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-exemple of  documents
+an exemple of  documents
 {
     "nSurah" : 1,
     "nAyah" : 1,
     "content" : "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     "language" : "Original Arabic"
 } 
-/sourat/Original_Arabic-1
 */
 
 //getting a sourat /lang
@@ -45,7 +40,7 @@ app.get('/sourat/:id', function (req, res) {
             console.log("Full Search sourat", p.length);
             res.json(p);
         }
-    }).sort({ nAyah: 1 });
+    }).sort({ nAyah: 1 });//order by ayatnumber  asc
 
 });
 
@@ -80,7 +75,7 @@ app.get("/searchword/:id", function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    //// partial name
+    //// partial name with regular expressions
     Verse.find(
         {
             "language": keys[0],
@@ -107,48 +102,6 @@ app.get("/searchwordinsourat/:id", function (req, res) {
         console.log(word)
     });
 
-
-    // db.things.find({
-    //     $and: [
-    //         {
-    //             $or: [
-    //                 { "first_name": "john" },
-    //                 { "last_name": "john" }
-    //             ]
-    //         },
-    //         {
-    //             "Phone": "12345678"
-    //         }
-    //     ]
-    // });
-
-    // find(
-    //     { $or: [{ name: "Rambo" }, { breed: "Pugg" }, { age: 2 }] },
-    //     function(err, result) {
-    //       if (err) {
-    //         res.send(err);
-    //       } else {
-    //         res.send(result);
-    //       }
-    //     }
-    //   );
-
-    // data.forEach(function(record){
-    //     console.log(record.name);
-    //     // Do whatever processing you want
-    // });
-
-    // router.route("/test").get(function(req, res) {
-    //     for (var i = 0; i < 3; i++) {
-    //       detail.create({ name: "John", age: 21 }, function(err, result) {
-    //         if (err) {
-    //           console.log(err);
-    //         } else {
-    //           res.json(result);
-    //         }
-    //       });
-    //     }
-    //   });
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 

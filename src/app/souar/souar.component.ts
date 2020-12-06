@@ -1,10 +1,5 @@
 import { Route, ActivatedRoute } from "@angular/router";
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-} from "@angular/forms";
+
 import { Component, OnInit} from "@angular/core";
 
 import { Verse } from '../verse';
@@ -2040,7 +2035,7 @@ export class SouarComponent implements OnInit {
     this.recognition.maxAlternatives = 1;
 
   }
-
+  //allocate for sourats
   getsa() {
     let x = [];
     let i;
@@ -2049,9 +2044,9 @@ export class SouarComponent implements OnInit {
     }
     return x;
   }
+  //allocate ayat for specific sourat
 
   getva(n) {
-    //this.souratInfo[n]["versesCount"]
     let x = [];
     let i;
     x.push("all");
@@ -2062,15 +2057,12 @@ export class SouarComponent implements OnInit {
     return x;
   }
 
-
+  //get png image for ayah
   getImageLink(a, b) {
-    /*https://everyayah.com/data/images_png/2_12.png */
     return "https://everyayah.com/data/images_png/"+a + "_" + b + ".png";
   }
-
+  //get mp3 for ayah
   getMp3Link(a, b) {
-
-    /*https://everyayah.com/data/Ghamadi_40kbps/114002.mp3*/
     a = a.toString();
     b = b.toString();
 
@@ -2120,15 +2112,6 @@ export class SouarComponent implements OnInit {
       });
 
     }
-
-    /*, surah  if (word!="" && surah) {
-      this.verseService.searchWordInSourat(lang + "-" + surah + "-" + word).subscribe(objs => {
-        this.VersesRes = objs;
-      });
-    }
-    else {
-      
-    } */
 
   }
 
