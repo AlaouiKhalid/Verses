@@ -91,7 +91,7 @@
 
     <div class="souar">
       <mat-form-field>
-        <mat-label>اختر السورة</mat-label>
+        <mat-label>Choose a sourat</mat-label>
         <mat-select [(value)]="surah">
           <!---getsa()-->
           <mat-option *ngFor="let s of souratInfo" [value]="s.id">
@@ -103,7 +103,7 @@
 
     <div class="versets">
       <mat-form-field>
-        <mat-label>اختر الآية</mat-label>
+        <mat-label>Choose a verse</mat-label>
         <mat-select [(value)]="verse">
           <!--souratInfo[surah-1].versesCount-->
           <mat-option *ngFor="let a of getva(nAyat[surah-1])" [value]="a">
